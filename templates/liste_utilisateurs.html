@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Utilisateurs</title>
+</head>
+<body>
+    <h1>Liste des Utilisateurs</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Fonction</th>
+        </tr>
+        {% for employee in employees %}
+            <tr>
+                <td>{{ employee.id }}</td>
+                <td>{{ employee.Nom }}</td>
+                <td>{{ employee.Prénom }}</td>
+                <td>{{ employee.Fonction }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('home') }}">Ajouter un nouvel utilisateur</a>
+</body>
+</html>

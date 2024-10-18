@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un Utilisateur</title>
+</head>
+<body>
+    <h1>Ajouter un Utilisateur</h1>
+    <form action="{{ url_for('ajouter_utilisateur') }}" method="POST">
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" required>
+        <br>
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" name="prenom" required>
+        <br>
+        <label for="fonction">Fonction:</label>
+        <input type="text" id="fonction" name="fonction" required>
+        <br>
+        <input type="submit" value="Ajouter">
+    </form>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <a href="{{ url_for('liste_utilisateurs') }}">Voir la liste des utilisateurs</a>
+</body>
+</html>
